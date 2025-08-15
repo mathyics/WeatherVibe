@@ -4,8 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Vibe</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+     <div class="weather-bg" id="weatherBg"></div>
+    
+    <div class="container">
+        <div class="header">
+            <!-- Added theme toggle button with sun/moon icons -->
+            <button class="theme-toggle" id="themeToggle" title="Toggle theme">
+                <svg id="sunIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg id="moonIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+            
+            <h1 class="app-title">WeatherVibe</h1>
+            <p class="app-subtitle">Your Daily Weather, Reimagined</p>
+        </div>
+
+        <div class="search-container">
+            <div class="search-wrapper">
+                <input type="text" class="search-input" id="cityInput" placeholder="Enter city name...">
+                <button class="search-btn" id="searchBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="loading" id="loading">
+            <div class="loading-spinner"></div>
+            <p class="loading-text">Fetching weather data...</p>
+        </div>
+
+            <div class="error" id="error">
+            <p>City not found. Please try again with a valid city name.</p>
+           </div>
+
+            <div class="weather-card" id="weatherCard">
+            <h2 class="city-name" id="cityName">Weather in Delhi</h2>
+            
+             <div class="weather-main">
+                <img src="https://openweathermap.org/img/wn/01d@2x.png" alt="Weather Icon" class="weather-icon" id="weatherIcon">
+                <div class="temperature" id="temperature">25°C</div>
+             </div>
+            
+             <div class="weather-description" id="weatherDescription">Clear Sky</div>
+            
+             <div class="weather-details">
+                 <div class="detail-card">
+                    <div class="detail-label">Humidity</div>
+                    <div class="detail-value" id="humidity">65%</div>
+                 </div>
+                 <div class="detail-card">
+                    <div class="detail-label">Wind Speed</div>
+                    <div class="detail-value" id="windSpeed">12 km/h</div>
+                </div>
+            </div>
+        </div>
+    </div>
     
 </body>
 </html>
