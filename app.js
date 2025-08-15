@@ -44,5 +44,31 @@ const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q="
             setTheme(newTheme);
         }
 
-
-        
+async function checkWeather(city) {
+    if (!city.trim()) return;
+    loading.classList.add('show');
+    weatherCard.classList.remove('show');
+    error.classList.remove('show');
+    try {
+        const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+        if (!response.ok) {
+            throw new Error('City not found');
+        }
+        const data = await response.json();
+        cityName.textContent = `Weather in ${data.name}`;
+        temperature.textContent = `${Math.round(data.main.temp)}°C`;
+        weatherDescription.textContent = data.weather[0].description;
+        humidity.textContent = `${data.main.humidity}%`;
+        windSpeed.textContent = `${Math.round(data.wind.speed * 3.6)} km/h`;
+        const iconCode = data.weather[0].icon;
+        weatherIcon.src = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+        weatherIcon.alt = data.weather[0].description;
+        updateBackground(data.weather[0].main.toLowerCase());
+        loading.classList.remove('show');
+        weatherCard.classList.add('show');
+    } catch (err) {
+        loading.classList.remove('show');
+        error.classList.add('show');
+        console.error('Error fetching weather data:', err);
+    }
+}
