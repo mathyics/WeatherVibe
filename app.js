@@ -97,3 +97,29 @@ function updateBackground(weatherType) {
             document.body.classList.add('clear-bg');
     }
 }
+
+
+searchBtn.addEventListener('click', () => {
+    checkWeather(cityInput.value);
+});
+
+cityInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        checkWeather(cityInput.value);
+    }
+});
+
+themeToggle.addEventListener('click', toggleTheme);
+
+window.addEventListener('load', () => {
+    initTheme();
+    checkWeather('Delhi');
+});
+
+cityInput.addEventListener('focus', () => {
+    cityInput.parentElement.style.transform = 'translateY(-2px)';
+});
+
+cityInput.addEventListener('blur', () => {
+    cityInput.parentElement.style.transform = 'translateY(0)';
+});
