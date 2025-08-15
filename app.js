@@ -72,3 +72,28 @@ async function checkWeather(city) {
         console.error('Error fetching weather data:', err);
     }
 }
+
+
+function updateBackground(weatherType) {
+    document.body.className = '';
+    switch(weatherType) {
+        case 'clear':
+            document.body.classList.add('clear-bg');
+            break;
+        case 'clouds':
+            document.body.classList.add('clouds-bg');
+            break;
+        case 'rain':
+        case 'drizzle':
+            document.body.classList.add('rain-bg');
+            break;
+        case 'snow':
+            document.body.classList.add('snow-bg');
+            break;
+        case 'thunderstorm':
+            document.body.classList.add('thunderstorm-bg');
+            break;
+        default:
+            document.body.classList.add('clear-bg');
+    }
+}
