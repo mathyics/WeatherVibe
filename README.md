@@ -1,4 +1,4 @@
-# 🌦️ WeatherVibe – Your Daily Weather, Reimagined
+# 🌦️ WeatherVibe – Your Daily Weather
 
 WeatherVibe is a stylish, responsive weather app that delivers real-time weather updates for any city.  
 It features a **modern UI**, **light/dark theme toggle**, and **dynamic backgrounds** that adapt to the current weather.
@@ -50,4 +50,5 @@ It features a **modern UI**, **light/dark theme toggle**, and **dynamic backgrou
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/mathyics/WeatherVibe.git
+
 
